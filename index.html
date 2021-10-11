@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Yohei Nakajima">
+    <title>Beastopia</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/rpgui.css" rel="stylesheet" type="text/css" >
+    <link href="css/custom.css" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    <script src="js/rpgui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    </script>
+</head>
+
+<!-- all rpgui elements must be inside the rpgui-content -->
+<body class="rpgui-content">
+
+  
+  <div class="container mt-4" style="display:none">
+    
+    <button type="button" class="btn btn-primary enableEthereumButton">Connect to Metamask</button>
+    <p class="mt-4"><b>Account:</b> <span class="showAccount"></span></p>
+    <p><b>Assets:<br></b> <span class="showAssets"></span></p>
+    <p><b>Collections:<br></b> <span class="showCollections"></span></p>
+  </div>
+
+
+  <div id="bottom-third">
+    <div id="dialogue-container" class="container rpgui-container framed">
+      <span id="dialogue">Welcome to Beastopia!</span>
+      <div id="dialogue-menu">
+        <div class="rpgui-center mt-4"><button class="rpgui-button pt-3 enableEthereumButton" type="button"><p>Metamask Log-in</p></button></div>
+      </div>
+    </div>
+    <div id="beast-left" style="display:none">
+    </div>
+    <div id="beast-right" style="display:none">
+    </div>
+  </div>
+
+
+  <div id="logged-in" style="display:none">
+    <div id="menubar-content" class="container">
+      <div class="row pt-4">
+
+        <div id="left-column" class="col-md-4 mt-2">
+          <div id="menubar" class="rpgui-container framed">
+            <h1>Menu</h1>
+            <div>
+              <button type="button" class="rpgui-button menu-button" id="lobby"><p class="mt-3">Lobby</p></button>
+            </div>
+            <div>
+              <button type="button" class="rpgui-button menu-button" id="chat"><p class="mt-3">Chat</p></button>
+              <div style="display:none" id="hide-categories-here">
+              </div>
+            </div>
+            <div>
+              <button type="button" class="rpgui-button menu-button" id="calendar"><p class="mt-3">Calendar</p></button>
+            </div>
+            <div>
+              <button type="button" class="rpgui-button menu-button" id="play"><p class="mt-3">Play</p></button>
+            </div>
+            <div>
+              <button type="button" class="rpgui-button menu-button" id="community"><p class="mt-3">Community</p></button>
+            </div>
+            <div>
+              <button type="button" class="rpgui-button menu-button" id="support"><p class="mt-3">Support</p></button>
+            </div>
+          </div>
+          <div id="profile" class="rpgui-container framed">
+            <div id="profile-image" style="float: right;overflow:hidden"></div>
+            <div><span id="token_id2"></span></div>
+            <div id="profile-info">
+            </div>
+            <div>
+              <p><a href="#" id="open-profile">Full Profile</a></p>
+            </div>
+          </div>
+        </div><!-- end left-column -->
+
+        <div id="right-column" class="col-md-7 mt-2">
+          <div id="content" class="rpgui-container framed">
+          </div>
+        </div><!-- end right-column -->
+
+      </div> <!-- end row -->
+    </div>
+  </div>
+
+  <div class="modal">
+    <div class="modal-content">
+      <div id="close-modal" style="display:none;text-align:right"><a href="#" id="close-modal-button">Close</a><hr></div>
+
+      <div id="modal-main">
+        <p>Choose your beast:</p>
+        <div id="beast-select">
+            <div style='clear:both;'><!--clear--></div> 
+        </div>
+      </div> <!-- end login-modal -->
+    </div>
+  </div>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src='js/core.js'></script>
+  <script src="js/custom.js"></script>
+
+</body>
+</html>

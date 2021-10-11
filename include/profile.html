@@ -1,0 +1,82 @@
+
+
+
+<div class="row">
+    <div class="content">
+        <div id="modal-profile-image" style="width:100px"></div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <div><p id="basic"></p></div>
+        <hr>
+        <div><p id="bff"></p></div>
+        <hr>
+        <div><p id="invisible"></p></div>
+    </div>
+    <div class="col-md-6">
+        <div><p id="ddattributes"></p></div>
+        <hr>
+        <div><p id="misc"></p></div>
+    </div>
+</div>
+<hr>
+
+<script>
+    
+$('document').ready(function(){
+
+  var token_id = $("#token_id2").html();
+
+  if (token_id<1000){
+    var image_id = "%23"+token_id;
+  } else {
+    var image_id = token_id;
+  }
+
+
+  $('#modal-profile-image').append('<img src="nobg/'+image_id+'.png" height=100 width=100 style="float:right">');
+
+console.log("hey");
+  var beast = beast_traits[token_id]["Beast"]+'</br>';
+  if (beast_traits[token_id]["Eyes"] != undefined){var eyes = beast_traits[token_id]["Eyes"]+'<br/>';} else {eyes="";}
+  if (beast_traits[token_id]["Hat"] != undefined){var hat = beast_traits[token_id]["Hat"]+'<br/>';} else {hat="";}
+  if (beast_traits[token_id]["Shirt"] != undefined){var shirt = beast_traits[token_id]["Shirt"]+'<br/>';} else {shirt="";}
+  if (beast_traits[token_id]["Neck"] != undefined){var neck = beast_traits[token_id]["Neck"]+'<br/>';} else {neck="";}
+
+console.log("hey2");
+  var best_friend = 'Best Friend: '+beast_traits[token_id]["Best_Friend"]+'<br/>';
+  var nemesis = 'Nemesis: '+beast_traits[token_id]["Nemesis"]+'<br/>';
+  var element = 'Element: '+beast_traits[token_id]["Element"]+'<br/>';
+  var habitat = 'Habitat: '+beast_traits[token_id]["Habitat"]+'<br/>';
+  var ddclass = 'Class: '+beast_traits[token_id]["Class"]+'<br/>';
+
+console.log("hey3");
+  var strength = 'Strength: '+beast_traits[token_id]["Strength"]+'<br/>';
+  var speed = 'Speed: '+beast_traits[token_id]["Speed"]+'<br/>';
+  var endurance = 'Endurance: '+beast_traits[token_id]["Endurance"]+'<br/>';
+  var intelligence = 'Intelligence: '+beast_traits[token_id]["Intelligence"]+'<br/>';
+  var wisdom = 'Wisdom: '+beast_traits[token_id]["Wisdom"]+'<br/>';
+  var charisma = 'Charisma: '+beast_traits[token_id]["Charisma"]+'<br/>';
+
+console.log("hey4");
+  var attribute_x = 'Attribute X: '+beast_traits[token_id]["Attribute_X"]+'<br/>';
+  var attribute_y = 'Attribute Y: '+beast_traits[token_id]["Attribute_Y"]+'<br/>';
+  var attribute_z = 'Attribute Z: '+beast_traits[token_id]["Attribute_Z"]+'<br/>';
+  var D_4_6_8_10_12_20 = 'D_4_6_8_10_12_20: '+beast_traits[token_id]["D_4_6_8_10_12_20"]+'<br/>';
+
+
+console.log("hey5");
+
+  $('#basic').append(beast+eyes+hat+shirt+neck);
+  $('#bff').append(best_friend+nemesis);
+  $('#invisible').append(element+habitat+ddclass);
+  $('#ddattributes').append(strength+speed+endurance+intelligence+wisdom+charisma);
+  $('#misc').append(attribute_x+attribute_y+attribute_z+D_4_6_8_10_12_20);
+
+console.log("hey6");
+
+});
+
+</script>

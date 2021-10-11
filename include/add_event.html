@@ -1,0 +1,74 @@
+
+<p class="poppins">Submit your event below to have it listed on the calendar!</p>
+<hr><label>Event Name*:</label>
+<input id="event-name" placeholder="Event Name" maxlength="50">
+<label>Event URL:</label>
+<input id="event-url" placeholder="Event URL" maxlength="300">
+<label>Event Date*:</label>
+<input id="event-date" type="date">
+<label>Event Time:</label>
+<input id="event-starttime" type="time">
+<label>Event Description:</label>
+<textarea id="event-description" placeholder="Description. Max Length 140 Characters." maxlength="140"></textarea>
+<button type="button" class="rpgui-button" id="submit-event-button" disabled>Submit</button>
+
+
+<script>
+    
+$('document').ready(function(){
+    $('#submit-event-button').click(function(){
+        console.log("submit-event-button clicked!");
+        var event_name = $("#event-name").val();
+        var event_url = $("#event-url").val();
+        var event_date = $("#event-date").val();
+        var event_starttime = $("#event-starttime").val();
+        var event_description = $("#event-description").val();
+        var wallet_id = $("#wallet_id").html();
+        var token_id = $("#token_id2").html();
+
+        dataString = {
+            'wallet_id':wallet_id,
+            'token_id':token_id,
+            'event_name':event_name,
+            'event_url':event_url,
+            'event_date':event_date,
+            'event_starttime':event_starttime,
+            'event_description':event_description
+          };
+        $.ajax({
+            'type':"POST",
+            url: "mysql/add_event.php",
+            'data': dataString,
+            'success':function(data){
+              console.log("success");
+              console.log(data);
+              $('#modal-main').empty();
+              $('.modal').hide();
+              $("#submit-event-button").prop("disabled",true);
+              $("#events-list").load('mysql/events.php');
+            }
+        });
+        //$('#modal-main').empty().load('include/add_event.html');
+        //$('.modal').show();
+        //$('#close-modal').show();
+    });
+
+    $("#event-name,#event-date").on("input", function(){
+        console.log("on input");
+        check_eventform();
+    });
+
+    function check_eventform(){
+        var event_name = $("#event-name").val();
+        var event_date = $("#event-date").val();
+        console.log(event_name);
+        if (event_name == "" || event_date == ""){
+            $("#submit-event-button").prop("disabled",true);
+        } else {
+            $("#submit-event-button").prop("disabled",false);
+        }
+    }
+
+});
+
+</script>

@@ -1,0 +1,169 @@
+body {
+    background-image: url('../img/bg.png');
+    background-size: 100%;
+    image-rendering: pixelated;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: auto;
+}
+
+.rpgui-content .poppins {
+    font-family: "Poppins";
+    text-shadow: 0px 0px black;
+    font-size: 16px;
+}
+
+.rpgui-content .poppins a {
+    font-size: 14px;
+}
+
+.rpgui-content .poppins .lillink {
+    font-family: "Poppins";
+    font-size: 12px;
+}
+
+#bottom-third {
+    position: fixed;
+    height: 40%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+
+}
+
+#dialogue-container {
+    background-color: white;
+    position: relative;
+    height: 80%;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #dialogue-container {
+    font-size: 14px;
+  }
+}
+
+
+/* set up height/width/top to be 160px for mobile */
+#beast-left {
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    top: -240px;
+    left: 10%;
+    /*background-image: url('../img/elf.png');*/
+    background-size: 100%;
+}
+
+/* set up height/width/top to be 160px for mobile */
+#beast-right {
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    top: -240px;
+    right: 10%;
+    background-image: url('../img/elf.png');
+    background-size: 100%;
+}
+
+
+
+#menubar-content {
+
+}
+
+#left-column {
+    position: relative;
+}
+
+#right-column {
+}
+
+#menubar {
+    margin: auto;
+    position: relative;
+    width: 100%;
+}
+
+.menu-button {
+    margin: auto;
+    width: 100%;
+}
+
+#profile {
+    position: relative;
+    width: 100%;
+    bottom: 0px;
+    margin-top: 10px;
+    min-height: 350px;
+}
+
+#content {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    max-height: 800px;
+    overflow: auto;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: hidden; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  overflow: hidden;
+  /* border */
+  border-style: solid;
+  border-image-source: url("img/border-image.png");
+  border-image-repeat: repeat;
+  border-image-slice: 6 6 6 6;
+  border-image-width: 18px;
+  border-width: 15px;
+  padding: 12px;
+  /* internal border */
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* background */
+  background: url("img/background-image.png") repeat repeat;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  background-position: center; 
+  overflow: auto;
+}
+
+.beast-choice {
+    position: relative;
+    width: 154px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+

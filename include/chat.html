@@ -1,0 +1,98 @@
+
+<div class="row" style="height:50px">
+  <div class="col-md-4">
+    <p>Select room:</p>
+  </div>
+  <div class="col-md-8">
+    <p class="rpgui-dropdown-imp rpgui-dropdown-imp-header" id="select-room" style="width:100%">
+      <label>▼</label> <span id="selected-room">General</span><span id="selected-room-id" style="display:none"></span>
+    </p>
+    <ul class=" rpgui-dropdown-imp" style="position: absolute; min-width: 300px; display: none;" id="room-dropdown">
+      <li class="room-selection mb-2 mt-2" id="">General</li>
+    </ul>
+  </div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-8">
+		<textarea id="chat_message" placeholder="type message here" maxlength="280"></textarea>
+	</div>
+	<div class="col-md-4">
+		<input type="submit" id="send_chat" disabled>
+	</div>
+</div>
+
+<hr class="golden">
+
+<div id="messages">
+	messages
+</div>
+
+<script>
+	
+$('document').ready(function(){
+
+  /* take hidden categories from under chat button and append to dropdown */
+  $('#room-dropdown').append($('#hide-categories-here').html());
+
+  /* room selection dropdown animation */
+  $('#select-room').click(function(){
+    $('#room-dropdown').toggle();
+  });
+
+  $('.room-selection').click(function(){
+    $('#room-dropdown').toggle();
+    var room_id = $(this).attr("id");
+    console.log(room_id);
+    var room_name = $(this).html();
+    $("#selected-room").html(room_name);
+    $("#selected-room-id").html(room_id);
+    $('#messages').load('mysql/messages.php',{'room_id': room_id});
+  });
+
+
+  /* load messages upon landing on page */
+	$('#messages').load('mysql/messages.php');
+
+
+	$('#send_chat').click(function(){
+		var message = $("#chat_message").val();
+		var wallet_id = $("#wallet_id").html();
+		var token_id = $("#token_id2").html();
+    var room_id = $("#selected-room-id").html();
+		console.log(message);
+		dataString = {
+            'message':message,
+            'wallet_id':wallet_id,
+            'token_id':token_id,
+            'room_id':room_id
+          };
+		console.log(dataString);
+    $.ajax({
+        'type':"POST",
+        url: "mysql/add_message.php",
+        'data': dataString,
+        'success':function(data){
+          console.log("success");
+          console.log(data);
+          var room_id = $("#selected-room-id").html();
+          $('#chat_message').val("");
+          $("#send_chat").prop("disabled",true);
+          $('#messages').load('mysql/messages.php',{'room_id': room_id});
+        }
+    });
+	});
+
+
+   $("#chat_message").on("input", function(){
+    if ($(this).val() == ""){
+      $("#send_chat").prop("disabled",true);
+    } else {
+      $("#send_chat").prop("disabled",false);
+
+    }
+  });
+
+});
+
+</script>

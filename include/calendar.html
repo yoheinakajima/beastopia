@@ -1,0 +1,36 @@
+
+<h1 style="font-size:120%">Upcoming Events</h1>
+<hr class="golden">
+<p>Weekly BeastUps!</p>
+<p class="poppins">Every week, we'll get together for a virtual event. You'll find the time/link here each week!</p>
+<p><a href="https://app.mesh.online/PRUTA514" target="_blank">Friday, October 8th from 10-11 AM PT</a></p>
+<p class="poppins" style="font-size:14px">Eventually, we'll use a token-gated tool where you'll walk around as a PixelBeast. In the meantime, please don't share the link! We're using Mesh this time - it's a pixelated world where you walk around and connected by video calls with people close to you (browser only). I'll be in there 10-11, but you're welcome to jump in earlier or later a bit. </p>
+<hr>
+<p>Community Calendar</p>
+<p class="poppins">
+You can find NFT/web3 related events from the community here. Have an event? Submit it <a href="#" id="submit-event">here</a>!</p>
+<hr>
+<div id="events-list">
+</div>
+
+
+<!-- <div class='row mb-2'><div class='col-2'><div class='rpgui-container framed-golden' style='padding:0;position:relative;width:78px'><img src='nobg/8372.png' width=48></div></div><div class='col-10'><p><a href='#'>Name</a><br/><span class='poppins'>Date</span></br/><span class='poppins'>Description</span></p></div></div> -->
+
+<script>
+    
+$('document').ready(function(){
+
+    $("#events-list").load('mysql/events.php');
+
+    $('#submit-event').click(function(){
+        console.log("clicked!");
+        $('#modal-main').empty().load('include/add_event.html');
+        $('.modal').show();
+        $('#close-modal').show();
+    });
+
+
+
+});
+
+</script>
